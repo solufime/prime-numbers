@@ -1,29 +1,55 @@
-//'use strict';
+'use strict';
+
+//import isPrime;
+//import createDescArrayNumber;
 
 //const divPrime = document.querySelector('#prime');
+function showPrimeNumbers(number){
+	const arrNumbers = createDescArrayNumber(number);
+	return arrNumbers.filter( item => isPrime(item));
+}
 
-//const number = 10;
+console.log( showPrimeNumbers(100) );
 
-//const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100];
+function isPrime(number) {
 
-//const isPrime = number => {
-//	let i = number;
-//	let c = 0;
-//	while (i) {
-//		console.log('i:', i, 'c:', c);
-//		(number % i === 0) ? c++ : c;
-//		i--;
-//	}
-//	return (c === 2);
-//};
+	if (typeof number !== 'number') {
 
-//console.log(isPrime(number));
+		let error = new Error('The argument is not a number.');
+		return error;
+	}
 
-const numbers2 = createArrayNumber('string');
-console.log(numbers2);
+	if (number !== 2 && number % 2 === 0) return false;
+	if (number !== 3 && number % 3 === 0) return false;
+	if (number !== 5 && number % 5 === 0) return false;
+	if (number !== 7 && number % 7 === 0) return false;
+	if (number !== 9 && number % 9 === 0) return false;
 
-function createArrayNumber(number) {
-	if (typeof number !== 'number') {return error = new Error('The argument is not a number.')} ;
+	let i = number;
+	let c = 0;
+
+	while (i) {
+
+		//console.log('i=', i, 'c=', c);
+
+		if (c === 2 && i !== 1) return false;
+
+		(number % i === 0) ? c++ : c;
+		i--;
+	}
+	return (c === 2);
+}
+
+//console.log( isPrime(81 ) );
+
+// Create a descending array of numbers from a number.
+//let number = 10;
+function createDescArrayNumber(number) {
+	if (typeof number !== 'number') {
+
+		let error = new Error('The argument is not a number.');
+		return error;
+	}
 
 	let i = number;
 	let arr = [];
@@ -34,3 +60,6 @@ function createArrayNumber(number) {
 	return arr;
 }
 
+//const numbers = createDescArrayNumber(number);
+
+//console.log(numbers);
