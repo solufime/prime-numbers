@@ -9,7 +9,7 @@ function showPrimeNumbers(number){
 	return arrNumbers.filter( item => isPrime(item));
 }
 
-console.log( showPrimeNumbers(100) );
+console.log( showPrimeNumbers(1000) );
 
 function isPrime(number) {
 
