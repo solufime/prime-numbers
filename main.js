@@ -5,8 +5,8 @@
 
 //const divPrime = document.querySelector('#prime');
 function showPrimeNumbers(number){
-	const arrNumbers = createDescArrayNumber(number);
-	return arrNumbers.filter( item => isPrime(item));
+	const arrNumbers = createDescArrayNumber(number); // This Function create an descending array of numbers from a any number you provide it
+	return arrNumbers.filter( item => isPrime(item)); // This function returns a new array from the previous descending array of number, that only contain the prime numbers in these array list
 }
 
 console.log( showPrimeNumbers(1000) );
